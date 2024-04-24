@@ -32,7 +32,7 @@ function Profiles() {
           aria-expanded={open ? 'true' : undefined}
         >
           <Avatar
-            sx={{ width: 31, height: 31 }}
+            sx={{ width: 34, height: 34 }}
             alt="QuangAnh"
             src="https://www.upwork.com/profile-portraits/c1KZaai22g89s9EqCJLdPA953OU9nnol9LvtqActsJ4_hultXpjxX9CuDchkIJ8n6C"
           />
