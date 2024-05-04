@@ -17,8 +17,9 @@ import DeleteForeverIcon from '@mui/icons-material/DeleteForever'
 import Button from '@mui/material/Button'
 import DragHandleIcon from '@mui/icons-material/DragHandle'
 import ListCards from './ListCards/listCards'
+import { mapOrder } from '~/utilities/sort'
 
-function Column() {
+function Column({ column }) {
   const [anchorEl, setAnchorEl] = React.useState(null)
   const open = Boolean(anchorEl)
   const handleClick = (event) => {
@@ -27,6 +28,9 @@ function Column() {
   const handleClose = () => {
     setAnchorEl(null)
   }
+
+  const orderedCard = mapOrder(column?.cards, column?.cardOrderIds, '_id')
+
   return (
     <Box
       sx={{
@@ -57,7 +61,7 @@ function Column() {
             cursor: 'pointer'
           }}
         >
-          column title
+          {column?.title}
         </Typography>
         <Box>
           <Tooltip>
@@ -121,7 +125,7 @@ function Column() {
         </Box>
       </Box>
 
-      <ListCards />
+      <ListCards cards={orderedCard} />
 
       {/* Box column footer */}
       <Box
